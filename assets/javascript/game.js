@@ -2,8 +2,9 @@
 let wins = 0;
 let losses = 0;
 let attemptsLeft = 10;
-let pastGuessesArray = [];
+let pastGuesses = [];
 let underScores = [];
+let correctLetters =[]
 
 //sets an array of answers//
 const answersArray = ["javascript", "html", "python", "java", "ruby"];
@@ -13,8 +14,8 @@ const directionsText = document.getElementById("directions-text");
 const winsText = document.getElementById("winstext");
 const lossesText = document.getElementById("lossestext");
 const attemptsLeftText = document.getElementById("attemptslefttext");
-const pastGuessesText = document.getElementById("pastguesstext");
-const vanishText = document.getElementById("vanish");
+let pastGuessesText = document.getElementById("pastguesstext");
+let underScoreText = document.getElementById("underscores");
 
 
 //defines the random work function and variable computerChoice//
@@ -26,11 +27,16 @@ let choiceWords = computerChoice.split("");
 
 // generate undescores that appear in the webpage and can change based on the length of the word
 let underscoresmaker = function() {
-    for(let i =0; i < choiceWords.length; i++){
-        underScores.push("_");
+    for(let i = 0; i < choiceWords.length; i++){
+        underScores.push(" _ ");
+        underScoreText.textContent = underScores.join("");
+
     }
     return underScores;
+    
 } 
+
+console.log(underscoresmaker());
 //console.log(choiceWords);
 //console.log(underscoresmaker());
 //IT WORKED!!!! THIS IS ME CELEBRTAING THE UNDERSCORES TUTORIAL I WATCHED ACTUALLY WORKED 
@@ -38,13 +44,25 @@ let underscoresmaker = function() {
 
     // need to inlcude onkey event that gathers user input
     document.onkeyup = function(event) {
-       const userGuess = event.key;
-       console.log(userGuess);
-       console.log(choiceWords);
-       
+       let userGuess = event.key;
+      // console.log(userGuess);
+       //console.log(choiceWords);
+
     //this conditional states that if the users guess contains a character then it is valid//
     if ((choiceWords.includes(userGuess) === true)) {
+        correctLetters.push(userGuess);
         console.log(true);
+        console.log(correctLetters);
+
+       // underScores[choiceWords.indexOf(userGuess)]= correctLetters;
+    } else if ((choiceWords.includes(userGuess) === false)) {
+        pastGuesses.push(userGuess);
+        attemptsLeft --;
+        pastGuesses.push(userGuess)
+        attemptsLeftText.textContent = "Attempts Left: " + attemptsLeft;
+        pastGuessesText.textContent  = "Guesses so Far: " + pastGuesses;
+
+        console.log(pastGuesses);
     }
 
 }

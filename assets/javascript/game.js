@@ -31,39 +31,26 @@ let underscoresmaker = function() {
     }
     return underScores;
 } 
-console.log(choiceWords);
-console.log(underscoresmaker());
-
+//console.log(choiceWords);
+//console.log(underscoresmaker());
 //IT WORKED!!!! THIS IS ME CELEBRTAING THE UNDERSCORES TUTORIAL I WATCHED ACTUALLY WORKED 
 
 
-console.log(choiceWords);
     // need to inlcude onkey event that gathers user input
     document.onkeyup = function(event) {
        const userGuess = event.key;
        console.log(userGuess);
        console.log(choiceWords);
-    
-    
-
-    if ((choiceWords === userGuess)) {
-        alert("did this work?");
+       
+    //this conditional states that if the users guess contains a character then it is valid//
+    if ((choiceWords.includes(userGuess) === true)) {
+        console.log(true);
     }
 
 }
 
 // generate undescores that appear in the webpage and can change based on the length of the word
 
-    
-
-
-
-
-    //conditional statements
+     //conditional statements
  
-   
-
-
-   /* 
-    console.log(computerChoice) function gameOn() {; */
-
+  

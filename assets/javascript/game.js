@@ -1,16 +1,17 @@
-// create arrays for guesses
+/* create changing variables and arrays for programming languages to be guessed */
 let wins = 0;
 let losses = 0;
-let guessesLeft = 5;
+let attemptsLeft = 10;
 let pastGuessesArray = [];
-const answersArray: ["javascript", "html", "python", "java", "c++"],
+//sets an array of answers//
+const answersArray = ["javascript", "html", "python", "java", "ruby"];
 
 //this holds the place in the HTML document //
 
 const directionsText = document.getElementById("directions-text");
 const winsText = document.getElementById("winstext");
 const lossesText = document.getElementById("lossestext");
-const guessesLeftText = document.getElementById("guesseslefttext");
+const attemptsLeftText = document.getElementById("attemptslefttext");
 const pastGuessesText = document.getElementById("pastguesstext");
 const vanishText = document.getElementById("vanish");
 
@@ -19,7 +20,17 @@ const vanishText = document.getElementById("vanish");
 //Randomly chooses a choice from the questions array and will begin the game//
 function gameOn() {
     // need to inlcude onkey event
-    triviaCouples.onkeyup = function myScripe
+    document.onkeyup = function (event);
+        let userGuess = event.key
+    
+    console.log(userGuess)
+    
+    
+    
+    
+    /*
+    
+    triviaCouples.onkeyup = function myScrip
     let computerQuestion = questionsArray[Math.floor(Math.random() * questionsArray.length)];
     document.getElementById("gameontext").innerHTML = computerQuestion;
     console.log(computerQuestion);
@@ -54,4 +65,4 @@ function gameOn() {
 
 //wins and losses totals
 
-// game needs to restart //
+// game needs to restart */

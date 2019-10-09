@@ -4,7 +4,7 @@ let losses = 0;
 let attemptsLeft = 10;
 let pastGuesses = [];
 let underScores = [];
-let correctLetters =[]
+let correctLetters = [];
 
 //sets an array of answers//
 const answersArray = ["javascript", "html", "python", "java", "ruby"];
@@ -19,56 +19,50 @@ let underScoreText = document.getElementById("underscores");
 
 
 //defines the random work function and variable computerChoice//
-let computerChoice = answersArray[Math.floor(Math.random()* answersArray.length)];
+let computerChoice = answersArray[Math.floor(Math.random() * answersArray.length)];
 console.log(computerChoice);
 
 //attempting to use split function that Tish suggested
 let choiceWords = computerChoice.split("");
 
 // generate undescores that appear in the webpage and can change based on the length of the word
-let underscoresmaker = function() {
-    for(let i = 0; i < choiceWords.length; i++){
+let underscoresmaker = function () {
+    for (let i = 0; i < choiceWords.length; i++) {
         underScores.push(" _ ");
+        //the join function eliminates the ',' inbetween underscores
         underScoreText.textContent = underScores.join("");
 
     }
     return underScores;
-    
-} 
+}
 
 console.log(underscoresmaker());
-//console.log(choiceWords);
-//console.log(underscoresmaker());
 //IT WORKED!!!! THIS IS ME CELEBRTAING THE UNDERSCORES TUTORIAL I WATCHED ACTUALLY WORKED 
-
-
-    // need to inlcude onkey event that gathers user input
-    document.onkeyup = function(event) {
-       let userGuess = event.key;
-      // console.log(userGuess);
-       //console.log(choiceWords);
+// NEED TO REPLACE UNDERSCORE
+// need to inlcude onkey event that gathers user input
+document.onkeyup = function (event) {
+    let userGuess = event.key;
+    // console.log(userGuess);
+    //console.log(choiceWords);
 
     //this conditional states that if the users guess contains a character then it is valid//
     if ((choiceWords.includes(userGuess) === true)) {
         correctLetters.push(userGuess);
-        console.log(true);
+       // console.log(true);
         console.log(correctLetters);
-
-       // underScores[choiceWords.indexOf(userGuess)]= correctLetters;
+        console.log(choiceWords);
+                 
+    // user inputs that do not contain a letter in an array
     } else if ((choiceWords.includes(userGuess) === false)) {
+        attemptsLeft--;
         pastGuesses.push(userGuess);
-        attemptsLeft --;
-        pastGuesses.push(userGuess)
         attemptsLeftText.textContent = "Attempts Left: " + attemptsLeft;
-        pastGuessesText.textContent  = "Guesses so Far: " + pastGuesses;
-
+        pastGuessesText.textContent = "Guesses so Far: " + pastGuesses;
         console.log(pastGuesses);
     }
-
+    if ((attemptsLeft == 0)) {
+    confirm("That's All Folks! Better Luck Next Time, Let's Try Again!")
+        location.reload();
+    }   
 }
-
-// generate undescores that appear in the webpage and can change based on the length of the word
-
-     //conditional statements
- 
-  
+//conditional statements

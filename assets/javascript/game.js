@@ -20,14 +20,24 @@ const vanishText = document.getElementById("vanish");
 //defines the random work function and variable computerChoice//
 let computerChoice = answersArray[Math.floor(Math.random()* answersArray.length)];
 console.log(computerChoice);
+//attempting to use split function that Tish suggested
+let choiceWords = computerChoice.split("");
 
-
+console.log(choiceWords);
     // need to inlcude onkey event that gathers user input
     document.onkeyup = function(event) {
        const userGuess = event.key;
-       console.log(userGuess)
-    }
+       console.log(userGuess);
+       console.log(choiceWords);
     
+    
+
+    if ((choiceWords === userGuess)) {
+        alert("did this work?");
+    }
+
+}
+
 
 
     //conditional statements

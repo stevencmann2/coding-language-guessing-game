@@ -13,13 +13,8 @@ https://stevencmann2.github.io/coding-language-guessing-game/ .
 
 ## Photos of the App
 
-* ![Screenshot of the App](./assets/images/pic1.png) 
-* ![Screenshot of the App](./assets/images/pic.png) 
+ ![Screenshot of the App](./assets/images/pic1.png) 
+![Screenshot of the App](./assets/images/pic.png) 
 
 
  
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
